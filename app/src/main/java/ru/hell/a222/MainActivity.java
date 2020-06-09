@@ -25,11 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar myToolbar;
 
-    // Генератор случайностей
+
     private Random random = new Random();
-    // Наш адаптер
     private ItemsDataAdapter adapter;
-    // Список картинок, которые мы будем брать для нашего списка
     private List<Drawable> images = new ArrayList<>();
 
 
@@ -45,9 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
         fillImages();
 
-
-
-        // При тапе по кнопке добавим один новый элемент списка
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,21 +50,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Создаем и устанавливаем адаптер на наш список
         adapter = new ItemsDataAdapter(this, null);
         listView.setAdapter(adapter);
 
-        // При тапе по элементу списка будем показывать его данные
-/*        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Тут мы получаем и отображаем данные,
-                // но можно сделать и перейти в новую активити с этими данными
-                showItemData(position);
-            }
-        });*/
-
-        // При долгом тапе по элементу списка будем удалять его
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -82,13 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         myToolbar = findViewById(R.id.my_toolbar);
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -104,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (id == R.id.action_open_mail) {
-            Intent intentNotes = new Intent(MainActivity.this, MailActivity.class);
+            Intent intentNotes = new Intent(MainActivity.this, MainActivity.class);
             startActivity(intentNotes);
             Toast.makeText(MainActivity.this, "Оформить подписку", Toast.LENGTH_LONG).show();
             return true;
@@ -119,8 +99,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // Заполним различными картинками, которые встроены в сам Android
-    // ContextCompat обеспечит нам поддержку старых версий Android
+
     private void fillImages() {
         images.add(ContextCompat.getDrawable(MainActivity.this,
                 android.R.drawable.ic_menu_report_image));
@@ -134,10 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 android.R.drawable.ic_menu_call));
     }
 
-    // Создадим ну почти случайные данные для нашего списка.
-    // random.nextInt(граница_последнего_элемента)
-    // Для каждого элемента мы возьмем 1 случайную картинку
-    // из 5, которые мы сделали вначале.
+
     private void generateRandomItemData() {
         adapter.addItem(new ItemData(
                 images.get(random.nextInt(images.size())),
@@ -148,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                         "бурление коричневой субстанции."));
     }
 
-    // Покажем сообщение с данными
+
     private void showItemData(int position) {
         ItemData itemData = adapter.getItem(position);
         Toast.makeText(MainActivity.this,
