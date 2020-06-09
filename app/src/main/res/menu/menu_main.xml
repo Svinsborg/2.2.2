@@ -6,12 +6,24 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:title="Settings"
+        android:title="@string/settings"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_open_notes"
         android:orderInCategory="100"
-        android:title="Записная книжка"
+        android:title="@string/notes"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_open_mail"
+        android:orderInCategory="100"
+        android:title="@string/mail"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_open_cities"
+        android:orderInCategory="100"
+        android:title="@string/cities"
+        app:showAsAction="never" />
+
 </menu>

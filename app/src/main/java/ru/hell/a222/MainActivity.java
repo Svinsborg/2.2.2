@@ -113,6 +113,20 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Отркыть записную книжку", Toast.LENGTH_LONG).show();
             return true;
         }
+
+        if (id == R.id.action_open_mail) {
+            Intent intentNotes = new Intent(MainActivity.this, MailActivity.class);
+            startActivity(intentNotes);
+            Toast.makeText(MainActivity.this, "Оформить подписку", Toast.LENGTH_LONG).show();
+            return true;
+        }
+
+        if (id == R.id.action_open_cities) {
+            Intent intentNotes = new Intent(MainActivity.this, CitiesActivity.class);
+            startActivity(intentNotes);
+            Toast.makeText(MainActivity.this, "Отркыть города", Toast.LENGTH_LONG).show();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
