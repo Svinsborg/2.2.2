@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,7 +24,6 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar myToolbar;
-    private ImageView basket;
 
     // Генератор случайностей
     private Random random = new Random();
@@ -80,19 +78,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        basket.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-
-            }
-        });
     }
 
     private void init() {
         myToolbar = findViewById(R.id.my_toolbar);
-        basket = findViewById(R.id.delete);
 
 
     }
@@ -156,8 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 "Знакомый запах чуя в соцсетях,\n" +
                         "стараюсь я держаться на дистанции.\n" +
                         "Идёт, идёт у многих в головах\n" +
-                        "бурление коричневой субстанции.",
-                random.nextBoolean()));
+                        "бурление коричневой субстанции."));
     }
 
     // Покажем сообщение с данными
@@ -165,8 +153,7 @@ public class MainActivity extends AppCompatActivity {
         ItemData itemData = adapter.getItem(position);
         Toast.makeText(MainActivity.this,
                 "Title: " + itemData.getTitle() + "\n" +
-                        "Subtitle: " + itemData.getSubtitle() + "\n" +
-                        "Checked: " + itemData.isChecked(),
+                     "Subtitle: " + itemData.getSubtitle() + "\n",
                 Toast.LENGTH_SHORT).show();
     }
 
