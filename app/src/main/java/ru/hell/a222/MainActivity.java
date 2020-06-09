@@ -60,20 +60,20 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         // При тапе по элементу списка будем показывать его данные
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+/*        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Тут мы получаем и отображаем данные,
                 // но можно сделать и перейти в новую активити с этими данными
                 showItemData(position);
             }
-        });
+        });*/
 
         // При долгом тапе по элементу списка будем удалять его
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                adapter.removeItem(position);
+                showItemData(position);
                 return true;
             }
         });
